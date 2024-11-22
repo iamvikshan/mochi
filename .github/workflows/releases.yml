@@ -32,13 +32,25 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies
-        run: bun install
-
       - name: Set GitLab path
         run: |
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           echo "GITLAB_PROJECT_PATH=${GITLAB_USERNAME}/${REPO_NAME}" >> $GITHUB_ENV
+
+      - name: Install required release dependencies
+        run: |
+          mkdir -p .release-deps
+          cd .release-deps
+          bun add --exact --no-save \
+            semantic-release@2@latest \
+            @semantic-release/changelog@latest \
+            @semantic-release/commit-analyzer@latest \
+            @semantic-release/git@latest \
+            @semantic-release/github@latest \
+            @semantic-release/release-notes-generator@latest \
+            conventional-changelog-conventionalcommits@latest \
+            conventional-changelog-gitmoji@latest \
+            semantic-release-gitmoji@latest
 
       - name: Semantic Release
         id: semantic_release
@@ -49,7 +61,9 @@ jobs:
           GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
           GIT_COMMITTER_NAME: ${{ github.actor }}
           GIT_COMMITTER_EMAIL: ${{ github.actor }}@users.noreply.github.com
-        run: bunx semantic-release
+        run: |
+          cd .release-deps
+          bunx semantic-release --extends ../release.config.js
 
       - name: Get latest release tag
         id: get_release_tag

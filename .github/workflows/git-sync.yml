@@ -16,13 +16,8 @@ jobs:
     steps:
       - name: Install GitLab CLI (glab)
         run: |
-          # Add WakeMeOps repository
           curl -sSL "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | sudo bash
-
-          # Install glab
           sudo apt install glab
-
-          # Verify installation
           if ! glab --version; then
             echo "Installation failed"
             exit 1
@@ -37,6 +32,32 @@ jobs:
         run: |
           echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
           echo "GITLAB_PROJECT_PATH=vikshan/${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+
+      - name: Check and Create GitLab Repository
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          # Check if repository exists
+          REPO_EXISTS=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+            "https://gitlab.com/api/v4/projects/vikshan%2F${REPO_NAME}" | jq -r '.id // empty')
+
+          if [ -z "$REPO_EXISTS" ]; then
+            echo "Repository doesn't exist. Creating..."
+            
+            # Create repository
+            curl -X POST -H "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+              "https://gitlab.com/api/v4/projects" \
+              -d "name=${REPO_NAME}" \
+              -d "path=${REPO_NAME}" \
+              -d "namespace_id=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+                "https://gitlab.com/api/v4/namespaces?search=vikshan" | jq '.[0].id')" \
+              -d "visibility=public"
+            
+            echo "Repository created successfully"
+            sleep 5 # Wait for repository to be fully created
+          else
+            echo "Repository already exists"
+          fi
 
       - name: Determine Default Branch
         id: default-branch
