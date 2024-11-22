@@ -1,0 +1,12 @@
+files:
+  - "*.md"
+  - "*.js"
+githubUrls:
+  types:
+    - "all"
+ignore:
+  - "https://github.com/DotwoodMedia/Dbot"
+  - "https://github.com/DotwoodMedia"
+  - "https://github.com/GraphixDevelopment"
+  - "https://github.com/Discordjs/discordjs"
+createPr: true

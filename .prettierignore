@@ -1,0 +1,6 @@
+node_modules/
+*ignore*
+*.sh
+*.bat
+*.nix
+*.replit
