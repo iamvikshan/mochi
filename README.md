@@ -13,7 +13,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/vixshan/Mochi">
+  <a href="https://github.com/vixshan/mochi">
     <img src="https://cdn.discordapp.com/attachments/1072562937732026439/1163539374282117140/logo.png?ex=653ff17c&is=652d7c7c&hm=08950e60af5c841343b546e12bb805a05a9b7edc69ca051b21c6c6877316c6b7&" alt="Pbot-plus" width="200" height="200">
   </a>
 
@@ -23,9 +23,9 @@
     Mochi is an updated version of <a href="https://github.com/DotwoodMedia/Dbot">Dbot</a>, an advanced Discord multipurpose bot containing more than 400 commands.<br> It can do Moderation, Tickets, Radio, Games, Giveaways, Customisation, Economy, Leveling, Invites, Messages, Utilities, Suggestions, Server Stats etc.<br> Unfortunately the owners stopped at the peak and decided to put the source online of which I made an updated version.
     <br />
     <br />
-    <a href="https://github.com/vixshan/Mochi/issues">Report Bug</a>
+    <a href="https://github.com/vixshan/mochi/issues">Report Bug</a>
     ·
-    <a href="https://github.com/vixshan/Mochi/issues">Request Feature</a>
+    <a href="https://github.com/vixshan/mochi/issues">Request Feature</a>
   </p>
 </p>
 
@@ -45,7 +45,7 @@
 
 ## <img src="https://cdn.discordapp.com/emojis/859424401186095114.png" width="20px" height="20px">》Description
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=vixshan&repo=Mochi&theme=tokyonight)](https://github.com/vixshan/Mochi)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=vixshan&repo=Mochi&theme=tokyonight)](https://github.com/vixshan/mochi)
 
 ## <img src="https://cdn.discordapp.com/emojis/852881450667081728.gif" width="20px" height="20px">》Feature
 
@@ -68,7 +68,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/vixshan/Mochi">
+  <a href="https://github.com/vixshan/mochi">
     <img src="https://cdn.discordapp.com/attachments/778665159316209748/1055832339328024666/207117434-d98356b1-bf19-418e-9e12-0ef83e0d9a21.png">
   </a>
 </p>
@@ -98,7 +98,7 @@
 - Clone the repo and install dependancies by running
 
 ```bash
-git clone https://github.com/vixshan/Mochi.git
+git clone https://github.com/vixshan/mochi
 cd Mochi
 npm install
 ```
@@ -147,19 +147,19 @@ By Donating, You Will Help Me To Maintain This Project
 》[Sponsor](https://github.com/sponsors/vixshan)
 
 [version-shield]: https://img.shields.io/github/package-json/v/vixshan/Mochi?style=for-the-badge
-[version-url]: https://github.com/brblacky/WaveMusic
+[version-url]: https://github.com/vixshan/mochi
 [pr-shield]: https://img.shields.io/github/issues-pr/vixshan/Mochi?style=for-the-badge
-[pr-url]: https://github.com/vixshan/Mochi/pulls
+[pr-url]: https://github.com/vixshan/mochi/pulls
 [contributors-shield]:
   https://img.shields.io/github/contributors/vixshan/Mochi.svg?style=for-the-badge
-[contributors-url]: https://github.com/vixshan/Mochi/graphs/contributors
+[contributors-url]: https://github.com/vixshan/mochi/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/vixshan/Mochi.svg?style=for-the-badge
-[forks-url]: https://github.com/vixshan/Mochi/network/members
+[forks-url]: https://github.com/vixshan/mochi/network/members
 [stars-shield]: https://img.shields.io/github/stars/vixshan/Mochi.svg?style=for-the-badge
-[stars-url]: https://github.com/vixshan/Mochi/stargazers
+[stars-url]: https://github.com/vixshan/mochi/stargazers
 [issues-shield]: https://img.shields.io/github/issues/vixshan/Mochi.svg?style=for-the-badge
-[issues-url]: https://github.com/vixshan/Mochi/issues
+[issues-url]: https://github.com/vixshan/mochi/issues
 [license-shield]: https://img.shields.io/github/license/vixshan/Mochi.svg?style=for-the-badge
-[license-url]: https://github.com/vixshan/Mochi/blob/master/LICENSE
+[license-url]: https://github.com/vixshan/mochi/blob/master/LICENSE
 
 ![Alt](https://repobeats.axiom.co/api/embed/61dc64e7e66cf5541e1511ad2c822c17ad581352.svg 'Repobeats analytics image')
