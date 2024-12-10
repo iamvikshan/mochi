@@ -73,7 +73,7 @@ async function deleteGitLabTags(projectPath) {
 }
 
 async function main() {
-  const githubOwner = 'vixshan'
+  const githubOwner = 'imavikshan'
   const githubRepo = 'mochi'
   const gitlabProjectPath = 'vikshan/mochi' // Format: group/project or user/project
 
