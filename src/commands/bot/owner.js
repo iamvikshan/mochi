@@ -19,12 +19,12 @@ module.exports = async (client, interaction, args) => {
         },
         {
           name: '🏢┆Organization',
-          value: `imavikshan`,
+          value: `iamvikshan`,
           inline: true
         },
         {
           name: '🌐┆Website',
-          value: `[YouTube](https://youtube.com/@imavikshan)`,
+          value: `[YouTube](https://youtube.com/@iamvikshan)`,
           inline: true
         }
       ],

@@ -7,8 +7,8 @@
 
 <br />
 
-[![Run on Repl.it](https://repl.it/badge/github/imavikshan/Mochi)](https://replit.com/@vikshan/Mochi)
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/imavikshan/Mochi)
+[![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
+[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -45,7 +45,7 @@
 
 ## <img src="https://cdn.discordapp.com/emojis/859424401186095114.png" width="20px" height="20px">》Description
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=imavikshan&repo=Mochi&theme=tokyonight)](https://github.com/imavikshan/Mochi)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=iamvikshan&repo=Mochi&theme=tokyonight)](https://github.com/iamvikshan/Mochi)
 
 ## <img src="https://cdn.discordapp.com/emojis/852881450667081728.gif" width="20px" height="20px">》Feature
 
@@ -144,22 +144,22 @@ npm run start
 By Donating, You Will Help Me To Maintain This Project
 
 <img src="https://cdn.discordapp.com/emojis/809085860632985630.png" width="15px" height="15px">
-》[Sponsor](https://github.com/sponsors/imavikshan)
+》[Sponsor](https://github.com/sponsors/iamvikshan)
 
-[version-shield]: https://img.shields.io/github/package-json/v/imavikshan/Mochi?style=for-the-badge
+[version-shield]: https://img.shields.io/github/package-json/v/iamvikshan/Mochi?style=for-the-badge
 [version-url]: https://github.com/iamvikshan/mochi
-[pr-shield]: https://img.shields.io/github/issues-pr/imavikshan/Mochi?style=for-the-badge
+[pr-shield]: https://img.shields.io/github/issues-pr/iamvikshan/Mochi?style=for-the-badge
 [pr-url]: https://github.com/iamvikshan/mochi/pulls
 [contributors-shield]:
-  https://img.shields.io/github/contributors/imavikshan/Mochi.svg?style=for-the-badge
+  https://img.shields.io/github/contributors/iamvikshan/Mochi.svg?style=for-the-badge
 [contributors-url]: https://github.com/iamvikshan/mochi/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/imavikshan/Mochi.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/iamvikshan/Mochi.svg?style=for-the-badge
 [forks-url]: https://github.com/iamvikshan/mochi/network/members
-[stars-shield]: https://img.shields.io/github/stars/imavikshan/Mochi.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/iamvikshan/Mochi.svg?style=for-the-badge
 [stars-url]: https://github.com/iamvikshan/mochi/stargazers
-[issues-shield]: https://img.shields.io/github/issues/imavikshan/Mochi.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/iamvikshan/Mochi.svg?style=for-the-badge
 [issues-url]: https://github.com/iamvikshan/mochi/issues
-[license-shield]: https://img.shields.io/github/license/imavikshan/Mochi.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/iamvikshan/Mochi.svg?style=for-the-badge
 [license-url]: https://github.com/iamvikshan/mochi/blob/master/LICENSE
 
 ![Alt](https://repobeats.axiom.co/api/embed/61dc64e7e66cf5541e1511ad2c822c17ad581352.svg 'Repobeats analytics image')

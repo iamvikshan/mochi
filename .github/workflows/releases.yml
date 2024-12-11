@@ -74,15 +74,3 @@ jobs:
               \"description\": ${ESCAPED_NOTES}
             }" \
             "https://gitlab.com/api/v4/projects/$(echo ${GITLAB_PROJECT_PATH} | sed 's|/|%2F|g')/releases"
-
-      - name: Sync repositories
-        run: |
-          bun run f
-          git config --global user.email "imavikshan@gmail.com"
-          git config --global user.name "imavikshan"
-          git commit --amend --no-edit
-          git push -f origin HEAD:${{ github.ref_name }}
-
-          git config --global user.name "vikshan"
-          git remote add gitlab https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/${GITLAB_PROJECT_PATH}.git
-          git push -f gitlab HEAD:${{ github.ref_name }}
