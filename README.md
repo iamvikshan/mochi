@@ -62,7 +62,7 @@
 - [x] Giveaways
 - [x] Easy to use
 - [x] Don't wanna host it yourself?
-      [Use our public bot](https://discord.com/api/oauth2/authorize?client_id=1009149789914546287&permissions=8&scope=bot%20applications.commands)
+      [Use our public bot](https://discord.com/api/oauth2/authorize?client_id=1035629678632915055&permissions=8&scope=bot%20applications.commands)
 
 ## <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="25px" height="25px">》Screenshots
 

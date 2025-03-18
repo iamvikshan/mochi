@@ -5,7 +5,7 @@ const axios = require('axios')
 // Check if is up to date
 const { version } = require('.././package.json')
 axios
-  .get('https://api.github.com/repos/CorwinDev/Discord-Bot/releases/latest')
+  .get('https://api.github.com/repos/iamvikshan/mochi/releases/latest')
   .then(res => {
     if (res.data.tag_name !== version) {
       console.log(
@@ -17,7 +17,7 @@ axios
     }
   })
   .catch(err => {
-    console.log(kleur.red.bgYellow(`Failed to check if bot is up to date!`))
+    console.log(kleur.red().bgYellow(`Failed to check if bot is up to date!`))
   })
 
 const webhook = require('./config/webhooks.json')
@@ -73,7 +73,7 @@ console.log(
   kleur.white(`...`)
 )
 console.log(`\u001b[0m`)
-console.log(kleur.red(`© CorwinDev | 2021 - ${new Date().getFullYear()}`))
+console.log(kleur.red(`© vikshan | 2021 - ${new Date().getFullYear()}`))
 console.log(kleur.red(`All rights reserved`))
 console.log(`\u001b[0m`)
 console.log(`\u001b[0m`)

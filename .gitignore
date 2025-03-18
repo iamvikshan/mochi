@@ -103,7 +103,5 @@ dist
 # TernJS port file
 .tern-port
 
-src/config/*
-
 package-lock.json
 bun.lockb

@@ -10,10 +10,7 @@ async function connect() {
       kleur.red(`MongoDB`),
       kleur.green(`is connecting...`)
     )
-    await mongoose.connect(process.env.MONGO_TOKEN, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    })
+    await mongoose.connect(process.env.MONGO_TOKEN)
   } catch (err) {
     console.log(
       kleur.red(`[ERROR]`),
