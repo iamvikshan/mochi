@@ -1,27 +1,24 @@
-[![Version][version-shield]](version-url) [![Contributors][contributors-shield]][contributors-url]
+[![Version][version-shield]][version-url] [![Contributors][contributors-shield]][contributors-url]
 [![PRs][pr-shield]][pr-url] [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-<center><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mochi&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" /></center>
-
-<br />
+<center>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mochi&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" alt="Mochi Header"/>
+</center>
 
 [![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
 [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
 
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <a href="https://github.com/iamvikshan/mochi">
-    <img src="https://cdn.discordapp.com/attachments/1072562937732026439/1163539374282117140/logo.png?ex=653ff17c&is=652d7c7c&hm=08950e60af5c841343b546e12bb805a05a9b7edc69ca051b21c6c6877316c6b7&" alt="Pbot-plus" width="200" height="200">
+    <img src="https://cdn.discordapp.com/attachments/1072562937732026439/1163539374282117140/logo.png" alt="Mochi Logo" width="200" height="200"/>
   </a>
 
-  <h3 align="center">Mochi</h3>
+  <h1 align="center">Mochi</h1>
 
   <p align="center">
-    Mochi is an updated version of <a href="https://github.com/DotwoodMedia/Dbot">Dbot</a>, an advanced Discord multipurpose bot containing more than 400 commands.<br> It can do Moderation, Tickets, Radio, Games, Giveaways, Customisation, Economy, Leveling, Invites, Messages, Utilities, Suggestions, Server Stats etc.<br> Unfortunately the owners stopped at the peak and decided to put the source online of which I made an updated version.
-    <br />
+    The ultimate Discord multipurpose bot with 400+ commands
     <br />
     <a href="https://github.com/iamvikshan/mochi/issues">Report Bug</a>
     ·
@@ -29,122 +26,97 @@
   </p>
 </p>
 
-<!-- NOTICE -->
+---
 
-### <img src="https://cdn.discordapp.com/emojis/1055803759831294013.png" width="20px" height="20px"> 》Notice
+## 📌 Important Notice
 
-> You may not claim this as your own! The original source was created by
-> [Dotwood Media](https://github.com/DotwoodMedia) and
-> [Graphix Development](https://github.com/GraphixDevelopment). The source is modified and being
-> updated by Vikshan
+> [!IMPORTANT]
+>
+> Mochi is DEPRECATED and no longer maintained. Please consider using
+> [Amina](github.com/iamvikshan/amina) for the latest updates and features.
 
-> Mochi is a multipurpose Discord bot base in [Discord.js](https://github.com/Discordjs/discordjs)
-> If you like this repository, feel free to leave a star ⭐ to motivate me!
+---
 
-<!-- ABOUT THE PROJECT -->
+## 🚀 Features
 
-## <img src="https://cdn.discordapp.com/emojis/859424401186095114.png" width="20px" height="20px">》Description
+<details open>
+<summary>Core Functionality</summary>
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=iamvikshan&repo=Mochi&theme=tokyonight)](https://github.com/iamvikshan/Mochi)
+- ✅ **Slash Commands Support**
+- ✅ **Discord.js v14 Ready**
+- ✅ **Automated Moderation**
+- ✅ **Custom Commands System**
+- ✅ **Music & Radio Features**
+- ✅ **Ticket System**
+- ✅ **Utility Toolkit**
+- ✅ **Suggestion Management**
+- ✅ **Reaction Roles**
+- ✅ **Family Features**
+- ✅ **Giveaway Manager**
+- ✅ **User-Friendly Setup**
+</details>
 
-## <img src="https://cdn.discordapp.com/emojis/852881450667081728.gif" width="20px" height="20px">》Feature
+---
 
-- [x] Slash Commands
-- [x] Upto date with Discord.js v14
-- [x] Automod
-- [x] Custom Commands
-- [x] Music Commands
-- [x] Tickets
-- [x] Utility Commands
-- [x] Suggestions
-- [x] Reaction Roles
-- [x] Family
-- [x] Giveaways
-- [x] Easy to use
-- [x] Don't wanna host it yourself?
-      [Use our public bot](https://discord.com/api/oauth2/authorize?client_id=1035629678632915055&permissions=8&scope=bot%20applications.commands)
+## 📸 Screenshots
 
-## <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="25px" height="25px">》Screenshots
-
-<br />
 <p align="center">
-  <a href="https://github.com/iamvikshan/mochi">
-    <img src="https://cdn.discordapp.com/attachments/778665159316209748/1055832339328024666/207117434-d98356b1-bf19-418e-9e12-0ef83e0d9a21.png">
-  </a>
+  <img src="https://cdn.discordapp.com/attachments/778665159316209748/1055832339328024666/207117434-d98356b1-bf19-418e-9e12-0ef83e0d9a21.png" alt="Mochi Screenshot" width="80%"/>
 </p>
 
-## <img src="https://cdn.discordapp.com/emojis/1009754836314628146.gif" width="25px" height="25px">》Requirements
+---
 
-- NodeJs v17+
-- Java v13 for lavalink server.
-- PM2 for process management.
-- Discord Token. Get it from
-  [Discord Developers Portal](https://discord.com/developers/applications)
-- Mongo Database URL. Get it from
-  [MongoDB](https://cloud.mongodb.com/v2/635277bf9f5c7b5620db28a4#clusters)
-- Giphy API Token. Get it from [Giphy Developers Portal](https://developers.giphy.com/)
-- OpenAI API Key `for ai chatbot`. Get it from
-  [OpenAi Developers Portal](https://beta.openai.com/account/api-keys)
-- ClientID `for loading slash commands.`
-- Spotify client ID `for spotify support`
-  [Click here to get](https://developer.spotify.com/dashboard/login)
-- Spotify client Secret `for spotify support`
-  [Click here to get](https://developer.spotify.com/dashboard/login)
+## 🛠️ Requirements
 
-## <img src="https://cdn.discordapp.com/emojis/814216203466965052.png" width="25px" height="25px">》Installation Guide
+- **Node.js** v20.18.1+
+  > **Note:** You may need to rebuild the canvas module for Node.js versions < v20.18.1
+- **Java** v13 (for Lavalink)
+- **PM2** (process manager)
+- **Discord Token** - [Create App](https://discord.com/developers/applications)
+- **MongoDB** Connection String - [Get Here](https://cloud.mongodb.com)
+- **Giphy API Key** - [Get Here](https://developers.giphy.com)
+- **OpenAI API Key** (optional for AI features)
+- **Spotify Credentials** (for music features)
 
-### <img src="https://cdn.discordapp.com/emojis/1028680849195020308.png" width="15px" height="15px"> Installing via [NPM](https://www.npmjs.com/)
+---
 
-- Clone the repo and install dependancies by running
+## 🚀 Quick Start
 
 ```bash
+# Clone the repository
 git clone https://github.com/iamvikshan/mochi.git
 cd Mochi
+
+# Install dependencies
 npm install
-```
 
-- After cloning Fill all requirement in `.env` **(rename `.env.example` to `.env`)**
+# Setup environment
+cp .env.example .env
+# ⚠️ Configure your .env file with required tokens
 
-- To start your bot for development
+# Development run
+npm run dev
 
-```js
-node src/index.js
-```
-
-or
-
-```js
-node .
-```
-
-- Install pm2 globally by running
-
-```js
-npm i -g pm2
-```
-
-- To start your bot using pm2
-
-```js
+# Production run with PM2
+npm install -g pm2
 npm run start
 ```
 
-> Note: If you are using pm2, make sure to install pm2 globally using `npm i -g pm2`
+---
 
-## <img src="https://cdn.discordapp.com/emojis/1036083490292244493.png" width="15px" height="15px">》Support Server
+## 🤝 Support
 
-[![DiscordBanner](https://invidget.switchblade.xyz/uMgS9evnmv)](https://discord.gg/uMgS9evnmv)
+Join our community for help and updates:  
+[![Discord Server](https://invidget.switchblade.xyz/uMgS9evnmv)](https://discord.gg/uMgS9evnmv)
 
-[Support Server](https://discord.gg/uMgS9evnmv) - Mochi's Support Server Invite
+---
 
-# <img src="https://cdn.discordapp.com/emojis/1015745034076819516.png" width="25px" height="25px">》
+## ❤️ Support Development
 
-# Donate
+Your donations help maintain and improve Mochi:  
+[![Sponsor](https://img.shields.io/badge/Sponsor-on%20GitHub-red?logo=github)](https://github.com/sponsors/iamvikshan)
 
-By Donating, You Will Help Me To Maintain This Project
-
-<img src="https://cdn.discordapp.com/emojis/809085860632985630.png" width="15px" height="15px">
-》[Sponsor](https://github.com/sponsors/iamvikshan)
+---
 
 [version-shield]: https://img.shields.io/github/package-json/v/iamvikshan/Mochi?style=for-the-badge
 [version-url]: https://github.com/iamvikshan/mochi
@@ -162,4 +134,4 @@ By Donating, You Will Help Me To Maintain This Project
 [license-shield]: https://img.shields.io/github/license/iamvikshan/Mochi.svg?style=for-the-badge
 [license-url]: https://github.com/iamvikshan/mochi/blob/master/LICENSE
 
-![Alt](https://repobeats.axiom.co/api/embed/61dc64e7e66cf5541e1511ad2c822c17ad581352.svg 'Repobeats analytics image')
+![Repobeats analytics](https://repobeats.axiom.co/api/embed/61dc64e7e66cf5541e1511ad2c822c17ad581352.svg)

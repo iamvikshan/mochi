@@ -2,8 +2,9 @@ const Discord = require('discord.js')
 const kleur = require('kleur')
 require('dotenv').config('./.env')
 const axios = require('axios')
-// Check if is up to date
-const { version } = require('.././package.json')
+
+// Check if the bot is up to date
+const { version } = require('../package.json')
 axios
   .get('https://api.github.com/repos/iamvikshan/mochi/releases/latest')
   .then(res => {
@@ -20,6 +21,7 @@ axios
     console.log(kleur.red().bgYellow(`Failed to check if bot is up to date!`))
   })
 
+// Load webhooks and config
 const webhook = require('./config/webhooks.json')
 const config = require('./config/bot.js')
 const webHooksArray = [
@@ -38,33 +40,56 @@ const webHooksArray = [
   'evalLogs',
   'interactionLogs'
 ]
-// Check if .env webhook_id and webhook_token are set
-if (process.env.WEBHOOK_ID && process.env.WEBHOOK_TOKEN) {
-  for (const webhookName of webHooksArray) {
-    webhook[webhookName].id = process.env.WEBHOOK_ID
-    webhook[webhookName].token = process.env.WEBHOOK_TOKEN
+
+// Apply fallback logic for webhooks
+for (const webhookName of webHooksArray) {
+  webhook[webhookName].id =
+    webhook[webhookName].id || process.env.WEBHOOK_ID || null
+  webhook[webhookName].token =
+    webhook[webhookName].token || process.env.WEBHOOK_TOKEN || null
+
+  if (!webhook[webhookName].id || !webhook[webhookName].token) {
+    console.warn(
+      kleur.yellow(`Warning:`),
+      kleur.white(`Webhook "${webhookName}" is missing an ID or token.`)
+    )
   }
 }
 
-const startLogs = new Discord.WebhookClient({
-  id: webhook.startLogs.id,
-  token: webhook.startLogs.token
-})
+// Dynamically initialize webhooks
+const webhookClients = {}
+for (const webhookName of webHooksArray) {
+  const { id, token } = webhook[webhookName]
 
-const shardLogs = new Discord.WebhookClient({
-  id: webhook.shardLogs.id,
-  token: webhook.shardLogs.token
-})
+  if (id && token) {
+    webhookClients[webhookName] = new Discord.WebhookClient({ id, token })
+  } else {
+    console.warn(
+      kleur.yellow(`Warning:`),
+      kleur.white(
+        `Skipping initialization of webhook "${webhookName}" due to missing ID or token.`
+      )
+    )
+    webhookClients[webhookName] = null
+  }
+}
 
+// Start logs
+const startLogs = webhookClients.startLogs
+const shardLogs = webhookClients.shardLogs
+
+// Sharding manager
 const manager = new Discord.ShardingManager('./src/bot.js', {
   totalShards: 'auto',
   token: process.env.DISCORD_TOKEN,
   respawn: true
 })
+
 if (process.env.TOPGG_TOKEN) {
   const { AutoPoster } = require('topgg-autoposter')
   AutoPoster(process.env.TOPGG_TOKEN, manager)
 }
+
 console.clear()
 console.log(
   kleur.blue(kleur.bold(`System`)),
@@ -80,32 +105,30 @@ console.log(`\u001b[0m`)
 console.log(
   kleur.blue(kleur.bold(`System`)),
   kleur.white(`>>`),
-  kleur.red(`Version ${require(`${process.cwd()}/package.json`).version}`),
+  kleur.red(`Version ${version}`),
   kleur.green(`loaded`)
 )
 console.log(`\u001b[0m`)
 
 manager.on('shardCreate', shard => {
-  let embed = new Discord.EmbedBuilder()
-    .setTitle(`🆙・Launching shard`)
+  const embed = new Discord.EmbedBuilder()
+    .setTitle(`Launching shard`)
     .setDescription(`A shard has just been launched`)
-    .setFields([
+    .addFields([
       {
-        name: '🆔┆ID',
+        name: 'ID',
         value: `${shard.id + 1}/${manager.totalShards}`,
         inline: true
       },
       {
-        name: `📃┆State`,
+        name: 'State',
         value: `Starting up...`,
         inline: true
       }
     ])
     .setColor(config.colors.normal)
-  startLogs.send({
-    username: 'Bot Logs',
-    embeds: [embed]
-  })
+
+  sendWebhookMessage(startLogs, embed)
 
   console.log(
     kleur.blue(kleur.bold(`System`)),
@@ -117,30 +140,26 @@ manager.on('shardCreate', shard => {
   console.log(`\u001b[0m`)
 
   shard.on('death', process => {
-    const embed = new Discord.EmbedBuilder()
+    const deathEmbed = new Discord.EmbedBuilder()
       .setTitle(
-        `🚨・Closing shard ${shard.id + 1}/${manager.totalShards} unexpectedly`
+        `Closing shard ${shard.id + 1}/${manager.totalShards} unexpectedly`
       )
-      .setFields([
+      .addFields([
         {
-          name: '🆔┆ID',
+          name: 'ID',
           value: `${shard.id + 1}/${manager.totalShards}`
         }
       ])
       .setColor(config.colors.normal)
-    shardLogs.send({
-      username: 'Bot Logs',
-      embeds: [embed]
-    })
+
+    sendWebhookMessage(shardLogs, deathEmbed)
 
     if (process.exitCode === null) {
-      const embed = new Discord.EmbedBuilder()
+      const exitEmbed = new Discord.EmbedBuilder()
         .setTitle(
-          `🚨・Shard ${shard.id + 1}/${
-            manager.totalShards
-          } exited with NULL error code!`
+          `Shard ${shard.id + 1}/${manager.totalShards} exited with NULL error code!`
         )
-        .setFields([
+        .addFields([
           {
             name: 'PID',
             value: `\`${process.pid}\``
@@ -151,97 +170,86 @@ manager.on('shardCreate', shard => {
           }
         ])
         .setColor(config.colors.normal)
-      shardLogs.send({
-        username: 'Bot Logs',
-        embeds: [embed]
-      })
+
+      sendWebhookMessage(shardLogs, exitEmbed)
     }
   })
 
   shard.on('shardDisconnect', event => {
-    const embed = new Discord.EmbedBuilder()
-      .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} disconnected`)
+    const disconnectEmbed = new Discord.EmbedBuilder()
+      .setTitle(`Shard ${shard.id + 1}/${manager.totalShards} disconnected`)
       .setDescription('Dumping socket close event...')
       .setColor(config.colors.normal)
-    shardLogs.send({
-      username: 'Bot Logs',
-      embeds: [embed]
-    })
+
+    sendWebhookMessage(shardLogs, disconnectEmbed)
   })
 
   shard.on('shardReconnecting', () => {
-    const embed = new Discord.EmbedBuilder()
-      .setTitle(`🚨・Reconnecting shard ${shard.id + 1}/${manager.totalShards}`)
+    const reconnectEmbed = new Discord.EmbedBuilder()
+      .setTitle(`Reconnecting shard ${shard.id + 1}/${manager.totalShards}`)
       .setColor(config.colors.normal)
-    shardLogs.send({
-      username: 'Bot Logs',
-      embeds: [embed]
-    })
+
+    sendWebhookMessage(shardLogs, reconnectEmbed)
   })
 })
 
 manager.spawn()
 
-// Webhooks
-const consoleLogs = new Discord.WebhookClient({
-  id: webhook.consoleLogs.id,
-  token: webhook.consoleLogs.token
-})
-
-const warnLogs = new Discord.WebhookClient({
-  id: webhook.warnLogs.id,
-  token: webhook.warnLogs.token
-})
-
+// Error handling
 process.on('unhandledRejection', error => {
   console.error('Unhandled promise rejection:', error)
-  if (error)
-    if (error.length > 950)
-      error = error.slice(0, 950) + '... view console for details'
-  if (error.stack)
-    if (error.stack.length > 950)
-      error.stack = error.stack.slice(0, 950) + '... view console for details'
-  if (!error.stack) return
+
   const embed = new Discord.EmbedBuilder()
-    .setTitle(`🚨・Unhandled promise rejection`)
+    .setTitle(`Unhandled promise rejection`)
     .addFields([
       {
         name: 'Error',
-        value: error ? Discord.codeBlock(error) : 'No error'
+        value: error ? Discord.codeBlock(error.toString()) : 'No error'
       },
       {
         name: 'Stack error',
-        value: error.stack ? Discord.codeBlock(error.stack) : 'No stack error'
+        value: error?.stack ? Discord.codeBlock(error.stack) : 'No stack error'
       }
     ])
-  consoleLogs
-    .send({
-      username: 'Bot Logs',
-      embeds: [embed]
-    })
-    .catch(() => {
-      console.log('Error sending unhandled promise rejection to webhook')
-      console.log(error)
-    })
+
+  sendWebhookMessage(webhookClients.consoleLogs, embed)
 })
 
 process.on('warning', warn => {
   console.warn('Warning:', warn)
+
   const embed = new Discord.EmbedBuilder()
-    .setTitle(`🚨・New warning found`)
+    .setTitle(`New warning found`)
     .addFields([
       {
         name: `Warn`,
         value: `\`\`\`${warn}\`\`\``
       }
     ])
-  warnLogs
+
+  sendWebhookMessage(webhookClients.warnLogs, embed)
+})
+
+// Helper function to send webhook messages
+function sendWebhookMessage(webhookClient, embed) {
+  if (!webhookClient) {
+    console.warn(
+      kleur.yellow(`Warning:`),
+      kleur.white(`Attempted to send message to a non-initialized webhook.`)
+    )
+    return
+  }
+
+  webhookClient
     .send({
       username: 'Bot Logs',
       embeds: [embed]
     })
-    .catch(() => {
-      console.log('Error sending warning to webhook')
-      console.log(warn)
+    .catch(error => {
+      console.error(
+        kleur.red(`Error:`),
+        kleur.white(`Failed to send message to webhook:`),
+        error
+      )
     })
-})
+}

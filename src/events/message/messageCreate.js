@@ -11,8 +11,13 @@ const levelRewards = require('../../database/models/levelRewards')
 const levelLogs = require('../../database/models/levelChannels')
 const Commands = require('../../database/models/customCommand')
 const CommandsSchema = require('../../database/models/customCommandAdvanced')
-const fetch = require('node-fetch')
-
+import('node-fetch')
+  .then(module => {
+    fetch = module.default // Assign the default export to fetch
+  })
+  .catch(err => {
+    console.error('Failed to load node-fetch:', err)
+  })
 /**
  *
  * @param {Discord.Client} client

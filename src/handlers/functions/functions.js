@@ -1,6 +1,11 @@
 const Discord = require('discord.js')
-const fetch = require('node-fetch')
-
+import('node-fetch')
+  .then(module => {
+    fetch = module.default // Assign the default export to fetch
+  })
+  .catch(err => {
+    console.error('Failed to load node-fetch:', err)
+  })
 const Functions = require('../../database/models/functions')
 const VoiceSchema = require('../../database/models/voiceChannels')
 
