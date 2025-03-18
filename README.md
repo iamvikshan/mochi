@@ -7,22 +7,10 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mochi&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" alt="Mochi Header"/>
 </center>
 
-[![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
-
-<p align="center">
-  <a href="https://github.com/iamvikshan/mochi">
-    <img src="https://cdn.discordapp.com/attachments/1072562937732026439/1163539374282117140/logo.png" alt="Mochi Logo" width="200" height="200"/>
-  </a>
-
-  <h1 align="center">Mochi</h1>
-
   <p align="center">
     The ultimate Discord multipurpose bot with 400+ commands
     <br />
     <a href="https://github.com/iamvikshan/mochi/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/iamvikshan/mochi/issues">Request Feature</a>
   </p>
 </p>
 
@@ -30,10 +18,10 @@
 
 ## 📌 Important Notice
 
-> [!IMPORTANT]
+> [!WARNING]
 >
 > Mochi is DEPRECATED and no longer maintained. Please consider using
-> [Amina](github.com/iamvikshan/amina) for the latest updates and features.
+> [Amina](https://github.com/iamvikshan/amina) for the latest updates and features. Contributions are however appreciated.
 
 ---
 
@@ -58,15 +46,10 @@
 
 ---
 
-## 📸 Screenshots
-
-<p align="center">
-  <img src="https://cdn.discordapp.com/attachments/778665159316209748/1055832339328024666/207117434-d98356b1-bf19-418e-9e12-0ef83e0d9a21.png" alt="Mochi Screenshot" width="80%"/>
-</p>
-
----
-
 ## 🛠️ Requirements
+
+[![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
+[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
 
 - **Node.js** v20.18.1+
   > **Note:** You may need to rebuild the canvas module for Node.js versions < v20.18.1
@@ -85,7 +68,7 @@
 ```bash
 # Clone the repository
 git clone https://github.com/iamvikshan/mochi.git
-cd Mochi
+cd mochi
 
 # Install dependencies
 npm install
@@ -93,9 +76,13 @@ npm install
 # Setup environment
 cp .env.example .env
 # ⚠️ Configure your .env file with required tokens
-
-# Development run
+```
+- Development environment
+```bash
 npm run dev
+```
+- Production environment
+```bash
 
 # Production run with PM2
 npm install -g pm2
