@@ -28,7 +28,7 @@
   "author": "vikshan",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/voice": "^0.18.0",
+    "@discordjs/voice": "^0.19.0",
     "@haileybot/captcha-generator": "^1.7.0",
     "@iamtraction/google-translate": "^2.0.1",
     "@octokit/rest": "^22.0.0",
