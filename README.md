@@ -53,7 +53,7 @@
 [![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
 [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
 
-- **Bun** v1.0.0+
+- **Bun** v1.0.1+
   > **Note:** Canvas dependencies are automatically handled by the setup script
 - **Java** v13 (for Lavalink)
 - **PM2** (process manager)

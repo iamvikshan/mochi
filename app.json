@@ -1,9 +1,15 @@
 {
   "name": "Mochi Discord Bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The ultimate Discord multipurpose bot with 400+ commands",
   "repository": "https://github.com/iamvikshan/mochi",
-  "keywords": ["discord", "bot", "music", "moderation", "games"],
+  "keywords": [
+    "discord",
+    "bot",
+    "music",
+    "moderation",
+    "games"
+  ],
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-apt"

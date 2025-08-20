@@ -1,3 +1,13 @@
+# [v1.0.1](https://github.com/iamvikshan/mochi/compare/v1.0.0...v1.0.1) (2025-08-20)
+
+
+
+## [1.0.1](https://github.com/iamvikshan/mochi/compare/v1.0.0...v1.0.1) (2025-08-20)
+
+### Bug Fixes
+
+* migrate project to Bun, update dependencies, and enhance CI/CD workflows ([e08c38a](https://github.com/iamvikshan/mochi/commit/e08c38a56685d87fa89a81ee9f03232e29bf8a96))
+
 # v1.0.0 (2024-12-11)
 
 ## 1.0.0 (2024-12-11)
