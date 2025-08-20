@@ -2,6 +2,7 @@
 [![PRs][pr-shield]][pr-url] [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![wakatime](https://wakatime.com/badge/user/8535571c-1079-48d4-ac47-11a817f61249/project/64d6795e-df1a-4e39-8396-d39a6f5a02ac.svg)](https://wakatime.com/badge/user/8535571c-1079-48d4-ac47-11a817f61249/project/64d6795e-df1a-4e39-8396-d39a6f5a02ac)
 
 <center>
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Mochi&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" alt="Mochi Header"/>
@@ -21,7 +22,8 @@
 > [!WARNING]
 >
 > Mochi is DEPRECATED and no longer maintained. Please consider using
-> [Amina](https://github.com/iamvikshan/amina) for the latest updates and features. Contributions are however appreciated.
+> [Amina](https://github.com/iamvikshan/amina) for the latest updates and features. Contributions
+> are however appreciated.
 
 ---
 
@@ -51,8 +53,8 @@
 [![Run on Repl.it](https://repl.it/badge/github/iamvikshan/Mochi)](https://replit.com/@vikshan/Mochi)
 [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/iamvikshan/Mochi)
 
-- **Node.js** v20.18.1+
-  > **Note:** You may need to rebuild the canvas module for Node.js versions < v20.18.1
+- **Bun** v1.0.0+
+  > **Note:** Canvas dependencies are automatically handled by the setup script
 - **Java** v13 (for Lavalink)
 - **PM2** (process manager)
 - **Discord Token** - [Create App](https://discord.com/developers/applications)
@@ -70,23 +72,32 @@
 git clone https://github.com/iamvikshan/mochi.git
 cd mochi
 
-# Install dependencies
-npm install
+# Install Canvas system dependencies (required for image generation)
+./scripts/setup-canvas.sh
+
+# Install dependencies with Bun
+bun install
 
 # Setup environment
 cp .env.example .env
 # ⚠️ Configure your .env file with required tokens
 ```
-- Development environment
-```bash
-npm run dev
-```
-- Production environment
-```bash
 
-# Production run with PM2
+- Development environment (with auto-reload)
+
+```bash
+bun run d
+```
+
+- Production environment
+
+```bash
+# Direct production run
+bun start
+
+# Or with PM2 (optional)
 npm install -g pm2
-npm run start
+pm2 start "bun start" --name mochi
 ```
 
 ---

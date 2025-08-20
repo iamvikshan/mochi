@@ -1,5 +1,5 @@
 hidden = [".config"]
-run = "npm run start"
+run = "bun start"
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"

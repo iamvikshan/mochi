@@ -245,7 +245,7 @@ module.exports = async (client, member, invite, inviter) => {
 
     invitedBy.findOne({ Guild: member.guild.id }, async (err, data2) => {
       if (data2) {
-        ;(data2.inviteUser = inviter.id), (data2.User = member.id)
+        ;((data2.inviteUser = inviter.id), (data2.User = member.id))
         data2.save()
       } else {
         new invitedBy({

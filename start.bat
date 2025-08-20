@@ -1,2 +1,2 @@
-node . --trace-warnings
+bun start --trace-warnings
 PAUSE

@@ -1,0 +1,39 @@
+{
+  "name": "Mochi Discord Bot",
+  "version": "1.0.0",
+  "description": "The ultimate Discord multipurpose bot with 400+ commands",
+  "repository": "https://github.com/iamvikshan/mochi",
+  "keywords": ["discord", "bot", "music", "moderation", "games"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
+    },
+    {
+      "url": "https://github.com/oven-sh/heroku-buildpack-bun"
+    }
+  ],
+  "env": {
+    "TOKEN": {
+      "description": "Discord Bot Token",
+      "required": true
+    },
+    "MONGO_URI": {
+      "description": "MongoDB Connection URI",
+      "required": true
+    },
+    "CLIENT_ID": {
+      "description": "Discord Application Client ID",
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "description": "Discord Application Client Secret",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
