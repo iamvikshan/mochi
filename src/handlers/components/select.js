@@ -34,7 +34,7 @@ module.exports = client => {
 
       row.addComponents(menu)
       row2.addComponents(menu2)
-      ;(sendComponents = row), row2
+      ;((sendComponents = row), row2)
     }
 
     if ((labels.length < 75 && labels.length > 50) || labels.length == 75) {
@@ -56,7 +56,7 @@ module.exports = client => {
       row.addComponents(menu)
       row2.addComponents(menu2)
       row3.addComponents(menu3)
-      ;(sendComponents = row), row2, row3
+      ;((sendComponents = row), row2, row3)
     }
 
     if ((labels.length < 100 && labels.length > 75) || labels.length == 100) {
@@ -84,7 +84,7 @@ module.exports = client => {
       row2.addComponents(menu2)
       row3.addComponents(menu3)
       row4.addComponents(menu4)
-      ;(sendComponents = row), row2, row3, row4
+      ;((sendComponents = row), row2, row3, row4)
     }
 
     if ((labels.length < 125 && labels.length > 100) || labels.length == 125) {
@@ -118,7 +118,7 @@ module.exports = client => {
       row3.addComponents(menu3)
       row4.addComponents(menu4)
       row5.addComponents(menu5)
-      ;(sendComponents = row), row2, row3, row4, row5
+      ;((sendComponents = row), row2, row3, row4, row5)
     }
 
     return await sendComponents

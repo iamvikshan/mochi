@@ -1,32 +1,109 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
-  # Enable version updates for NPM
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 5
-    reviewers:
-      - "iamvikshan"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    groups:
+      # Group Discord.js and related dependencies
+      discord-dependencies:
+        patterns:
+          - "discord.js"
+          - "@discordjs/*"
+          - "discord-*"
+      # Group music and media dependencies
+      media-dependencies:
+        patterns:
+          - "erela.js*"
+          - "ytdl-core"
+          - "ffmpeg-static"
+          - "lyrics-finder"
+          - "canvacord"
+          - "discord-image-generation"
+      # Group database and storage dependencies
+      database-dependencies:
+        patterns:
+          - "mongoose"
+          - "mongodb"
+      # Group utility dependencies
+      utility-dependencies:
+        patterns:
+          - "axios"
+          - "node-fetch"
+          - "moment*"
+          - "mathjs"
+          - "kleur"
+          - "figlet"
+          - "dotenv"
+          - "ms"
+          - "parse-ms"
+      # Group API and service dependencies
+      api-dependencies:
+        patterns:
+          - "@octokit/*"
+          - "@top-gg/*"
+          - "giphy-api"
+          - "weather-js"
+          - "popcat-wrapper"
+          - "sourcebin"
+          - "topgg-autoposter"
+      # Group development and build dependencies
+      dev-dependencies:
+        patterns:
+          - "@semantic-release/*"
+          - "semantic-release*"
+          - "conventional-changelog*"
+          - "prettier"
     labels:
       - "dependencies"
-    # ignore:
-    #   - dependency-name: "discord.js"
-    #   - dependency-name: 'pretty-ms'
-    #   - dependency-name: 'node-fetch'
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore(dev)"
+    # Allow Dependabot to update lockfiles (bun.lock)
+    allow:
+      - dependency-type: "all"
+    # Ignore specific packages that might cause issues
+    ignore:
+      - dependency-name: "fs"
+        # fs is a built-in Node.js module, shouldn't be updated
+      - dependency-name: "util"
+        # util is a built-in Node.js module, shouldn't be updated
+    # Auto-merge minor and patch updates for trusted dependencies
+    reviewers:
+      - "iamvikshan"
 
-  # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
     open-pull-requests-limit: 5
-    reviewers:
-      - "iamvikshan"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     labels:
-      - "actions"
+      - "gh-actions"
+      - "dependencies"
+    commit-message:
+      prefix: "chore(ci)"
+
+  # Add Docker base image updates
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 3
+    labels:
+      - "docker"
+      - "dependencies"
+    commit-message:
+      prefix: "chore(docker)"

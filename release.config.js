@@ -43,9 +43,23 @@ const config = {
     ],
     '@semantic-release/changelog',
     [
+      '@semantic-release/exec',
+      {
+        prepareCmd: 'node scripts/update-version.js ${nextRelease.version}',
+        publishCmd:
+          'echo "🎉 Version ${nextRelease.version} released successfully!"'
+      }
+    ],
+    [
       '@semantic-release/git',
       {
-        assets: ['CHANGELOG.md', 'package.json'],
+        assets: [
+          'CHANGELOG.md',
+          'package.json',
+          'README.md',
+          'app.json',
+          '.replit'
+        ],
         message:
           'Release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
       }

@@ -1,9 +1,8 @@
 { pkgs }: {
 	deps = [
 		pkgs.ffmpeg.bin
-  pkgs.nodejs-16_x
+		pkgs.bun
         pkgs.nodePackages.typescript-language-server
-        pkgs.yarn
         pkgs.replitPackages.jest
 	];
 }

@@ -1,2 +1,2 @@
 echo Starting discord bot...
-node . 
+bun start
