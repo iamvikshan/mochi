@@ -45,37 +45,5 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ github.actor }}@users.noreply.github.com
         run: bunx semantic-release
 
-      - name: Get latest release tag
-        id: get_release_tag
-        run: |
-          VERSION=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/latest" | \
-            jq -r '.tag_name' | sed 's/v//')
-          echo "VERSION=${VERSION}" >> $GITHUB_ENV
-
-      - name: Create GitLab Release
-        run: |
-          # Check if tag exists remotely
-          if ! git ls-remote --tags https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/${GITLAB_PROJECT_PATH}.git "refs/tags/v${VERSION}" | grep -q "v${VERSION}"; then
-            git tag "v${VERSION}" || true
-            git push https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/${GITLAB_PROJECT_PATH}.git "v${VERSION}"
-          fi
-
-          # Get GitHub release notes
-          GITHUB_RELEASE=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/latest")
-
-          RELEASE_NOTES=$(echo $GITHUB_RELEASE | jq -r '.body')
-          RELEASE_NOTES=${RELEASE_NOTES:-"Release v${VERSION}"}
-          ESCAPED_NOTES=$(echo "$RELEASE_NOTES" | jq -R -s '.')
-
-          # Create GitLab release using project path
-          curl --fail --request POST \
-            --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_TOKEN }}" \
-            --header "Content-Type: application/json" \
-            --data "{
-              \"name\": \"v${VERSION}\",
-              \"tag_name\": \"v${VERSION}\",
-              \"description\": ${ESCAPED_NOTES}
-            }" \
-            "https://gitlab.com/api/v4/projects/$(echo ${GITLAB_PROJECT_PATH} | sed 's|/|%2F|g')/releases"
+      # GitLab releases are handled by the git-sync workflow
+      # No need to duplicate release creation here

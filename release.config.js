@@ -67,6 +67,24 @@ const config = {
     [
       '@semantic-release/github',
       {
+        // Uncomment the assets section below if you want to include release assets
+        // assets: [
+        //   {
+        //     path: 'scripts/setup-canvas.sh',
+        //     name: 'setup-canvas.sh',
+        //     label: 'Canvas Setup Script'
+        //   },
+        //   {
+        //     path: 'Dockerfile',
+        //     name: 'Dockerfile',
+        //     label: 'Docker Configuration'
+        //   },
+        //   {
+        //     path: 'app.json',
+        //     name: 'app.json',
+        //     label: 'Heroku Configuration'
+        //   }
+        // ],
         successComment:
           '🎉 This ${issue.pull_request ? "PR is included" : "issue has been resolved"} in version ${nextRelease.version}',
         failTitle: '❌ The release failed',
