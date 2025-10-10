@@ -62,7 +62,7 @@
     "kleur": "^4.1.5",
     "libsodium-wrappers": "^0.7.15",
     "lyrics-finder": "^21.7.0",
-    "mathjs": "^14.6.0",
+    "mathjs": "^15.0.0",
     "moment": "^2.30.1",
     "moment-duration-format": "^2.3.2",
     "moment-timezone": "^0.6.0",
