@@ -4,11 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - "src/**"
-
-env:
-  GITLAB_USERNAME: vikshan
 
 jobs:
   release:
@@ -28,11 +23,6 @@ jobs:
 
       - name: Setup Node, Bun and install dependencies
         uses: iamvikshan/.github/.github/actions/setup-node-bun@main
-
-      - name: Set GitLab path
-        run: |
-          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          echo "GITLAB_PROJECT_PATH=${GITLAB_USERNAME}/${REPO_NAME}" >> $GITHUB_ENV
 
       - name: Semantic Release
         id: semantic_release
