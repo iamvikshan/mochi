@@ -132,4 +132,4 @@ Your donations help maintain and improve Mochi:
 [license-shield]: https://img.shields.io/github/license/iamvikshan/Mochi.svg?style=for-the-badge
 [license-url]: https://github.com/iamvikshan/mochi/blob/master/LICENSE
 
-![Repobeats analytics](https://repobeats.axiom.co/api/embed/61dc64e7e66cf5541e1511ad2c822c17ad581352.svg)
+![Alt](https://repobeats.axiom.co/api/embed/1d6ed241da20320c5aa13a204030204aaaf714db.svg "Repobeats analytics image")
